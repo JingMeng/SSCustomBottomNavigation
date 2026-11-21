@@ -3,13 +3,18 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions { jvmTarget = '11' }
+    namespace 'com.sscustombottomnavigation'
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.sscustombottomnavigation"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdk 21
+        targetSdk 34
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -21,6 +26,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    
     }
 
     dataBinding {
@@ -41,3 +47,7 @@ dependencies {
 
     implementation project(':custombottomnavigation')
 }
+
+
+
+
